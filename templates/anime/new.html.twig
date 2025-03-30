@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Add Anime{% endblock %}
+ 
+{% block body %}
+    {# This section is the navigation bar of the CRUD project #}
+    <div class="navigation">
+        <h1>Symfony Anime CRUD</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('app_anime_index') }}">Anime Dashboard</a></li>
+                    <li><a href="{{ path('app_anime_new') }}" class="active">Add New Anime</a></li>
+                    <li><a href="{{ path('app_home')}}"><i class="fa-solid fa-house"></i></a></li>
+                </ul>
+            </nav>
+    </div>
+
+    {# This section is for the form to create a new anime #}
+    <div class="body-header">
+        <h1>Add New Anime</h1>
+        <p>Fill in the details below to add a new anime.</p>
+    </div>
+
+    {# This section is the form to add a new anime #}
+    <div class="container-add-new">
+        <div class="card">
+            <div class="card-body">
+                 {{ include('anime/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

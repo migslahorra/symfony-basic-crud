@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Project{% endblock %}
+ 
+{% block body %}
+{# This section is the navigation bar of the CRUD project #}
+<div class="navigation">
+    <h1>Symfony Anime CRUD</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_anime_index') }}">Anime Dashboard</a></li>
+                <li><a href="{{ path('app_anime_new') }}">Add New Anime</a></li>
+                <li><a href="{{ path('app_home')}}"><i class="fa-solid fa-house"></i></a></li>
+            </ul>
+        </nav>
+</div>
+
+<div class="body-header">
+    <h1>Selected Anime Detail</h1>
+    <p>Detail of the selected anime.</p>
+</div>
+
+    <div class="container-show-anime">
+        <div class="card">
+            <div class="card-body">
+                <b class="text-muted">Title:</b>
+                <p>{{ anime.title }}</p>
+                <b class="text-muted">Description:</b>
+                <p>{{ anime.description }}</p>
+                <b class="text-muted">Seasons:</b>
+                <p>{{ anime.seasons }}</p>
+                <b class="text-muted">Episodes:</b>
+                <p>{{ anime.episodes }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

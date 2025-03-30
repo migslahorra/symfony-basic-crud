@@ -1,0 +1,15 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.seasons, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.episodes, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <button class="btn btn-outline-primary mt-3">{{ button_label|default('Save Anime') }}</button>
+{{ form_end(form) }}

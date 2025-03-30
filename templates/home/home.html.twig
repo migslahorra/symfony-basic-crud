@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony Basic CRUD!{% endblock %}
+
+{% block body %}
+{# This section is ony for the style for the home content to not mess up for the other page! #}
+<style>
+    body {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: block;
+    }
+    main {
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    h2, p {
+        color: white;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+    a {
+        background-color: #333;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        color: white;
+    }
+    a:hover {
+        background-color: #555;
+        transition-duration: 0.3s;
+    }
+</style>
+
+{# This section is the navigation bar of the CRUD project #}
+<div class="navigation">
+    <h1>Symfony Anime CRUD</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_anime_index') }}">Anime Dashboard</a></li>
+                <li><a href="{{ path('app_anime_new') }}">Add New Anime</a></li>
+                <li><a href="{{ path('app_home')}}" class="active"><i class="fa-solid fa-house"></i></a></li>
+            </ul>
+        </nav>
+</div>
+
+{# This is the welcome page for basic crud for symfony #}
+<main>
+<h2>Welcome to Symfony Basic CRUD with Animes!</h2><br>
+<p>This is a Basic Crud for Symfony Create, Read, Update, and Delete</p>
+<p>Click the button below to start managing your anime list!</p>
+<a href="{{ path('app_anime_index') }}">Start Managing Animes</a>
+
+</main>
+
+{# This is the footer for the home page #}
+<footer>
+    <p>&copy; 2025 Symfony Basic CRUD by <a href="https://github.com/migslahorra">@migslahorra</a> on GitHub</p>
+</footer>
+{% endblock %}

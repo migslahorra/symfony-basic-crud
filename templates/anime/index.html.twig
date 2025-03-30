@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anime index{% endblock %}
+ 
+{% block body %}
+    {# This section is the navigation bar of the CRUD project #}
+    <div class="navigation">
+        <h1>Symfony Anime CRUD</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('app_anime_index') }}" class="active">Anime Dashboard</a></li>
+                    <li><a href="{{ path('app_anime_new') }}">Add New Anime</a></li>
+                    <li><a href="{{ path('app_home')}}"><i class="fa-solid fa-house"></i></a></li>
+                </ul>
+            </nav>
+    </div>
+
+    {# This section is for the list of tables for managing all list of animes #}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Anime Table Manager</h2>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Seasons</th>
+                        <th>Episodes</th>
+                        <th width="240px">Action</th>
+                    </tr>
+                    {% for anime in animes %}
+                    <tr>
+                        <td>{{ anime.title }}</td>
+                        <td>{{ anime.description }}</td>
+                        <td>{{ anime.seasons }}</td>
+                        <td>{{ anime.episodes }}</td>
+                        <td>
+                            <form method="post" action="{{ path('app_anime_delete', {'id': anime.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <a
+                                    class="btn btn-outline-info"
+                                    href="{{ path('app_anime_show', {'id': anime.id}) }}">
+                                    Show
+                                </a>
+                                <a
+                                    class="btn btn-outline-success"
+                                    href="{{ path('app_anime_edit', {'id': anime.id}) }}">
+                                    Edit
+                                </a>
+ 
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ anime.id) }}">
+                                <button class="btn btn-outline-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Symfony Basic CRUD by <a href="https://github.com/migslahorra">@migslahorra</a> on GitHub</p>
+    </footer>
+
+{% endblock %}
